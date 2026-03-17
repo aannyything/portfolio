@@ -19,6 +19,8 @@
   
 </head>
 
+
+
 <!-- Build workflow, Background, Menu Bar, Icons, Windows, Dock -->
  
 <!--Desktop Background-->
@@ -36,6 +38,7 @@
         <span id="clock"></span>
     </div>
 </nav>
+
 
     <!-- Desktop icons -->
     <div id="icons">
@@ -83,11 +86,128 @@
     </div>
 </div>
 
+<!-- WORK WINDOW -->
 
-    <div id="desktop"></div>
 
+
+
+
+
+    <div id="desktop">
+
+    <!-- Background decision tree graphic -->
+    <svg
+        id="bg-graphic"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 620 340"
+    >
+        <style>
+            #bg-graphic text {
+                font-family: 'DM Mono', 'Courier New', monospace;
+                fill: #1a1814;
+            }
+            #bg-graphic .brace {
+                stroke: #1a1814;
+                stroke-width: 1.6;
+                fill: none;
+                stroke-linecap: round;
+            }
+            #bg-graphic .connector {
+                stroke: #1a1814;
+                stroke-width: 1.4;
+                fill: none;
+                stroke-linecap: round;
+            }
+            #bg-graphic .hl-green {
+                fill: #c8e6c9;
+            }
+            #bg-graphic .hl-orange {
+                fill: #ffe0b2;
+            }
+        </style>
+
+        <!-- "If you" label -->
+        <text x="14" y="181" font-size="21">If you</text>
+
+        <!-- Big curly brace -->
+        <path class="brace" d="
+            M 154, 92
+            C 142, 92  122,128  122,165
+            L 110,178
+            L 122,191
+            C 122,228  142,264  154,264
+        "/>
+
+        <!-- TOP BRANCH: "try" -->
+        <rect class="hl-green" x="168" y="107" width="54" height="30" rx="3"/>
+        <text x="172" y="128" font-size="20" font-weight="500">try</text>
+
+        <!-- Small curly brace after "try" -->
+        <path class="brace" d="
+            M 230,100
+            C 244,100  264,116  264,132
+            L 274,143
+            L 264,154
+            C 264,170  244,186  230,186
+        "/>
+
+        <!-- "either you succeed" -->
+        <text x="288" y="126" font-size="16">either you</text>
+        <text x="288" y="146" font-size="16">succeed</text>
+
+        <!-- "or you learn" -->
+        <text x="288" y="172" font-size="16">or you</text>
+        <text x="288" y="192" font-size="16">learn</text>
+
+        <!-- BOTTOM BRANCH: "don't try" -->
+        <rect class="hl-orange" x="168" y="228" width="80" height="52" rx="3"/>
+        <text x="172" y="250" font-size="20" font-weight="500">don't</text>
+        <text x="172" y="272" font-size="20" font-weight="500">try</text>
+
+        <!-- Horizontal line -->
+        <line class="connector" x1="251" y1="254" x2="295" y2="254"/>
+
+        <!-- "you wonder 'what if' forever" -->
+        <text x="302" y="248" font-size="16">you wonder "what</text>
+        <text x="302" y="268" font-size="16">if" forever</text>
+
+    </svg>
+
+</div>
     <!-- JavaScript -->
     <script src="script.js"></script>
+</body>
+
+<!-- ============ DOCK ============ -->
+<div id="dock">
+    <div class="dock-item" id="dock-about" onclick="toggleWindow('about')">
+        <span class="di-emoji">👤</span>
+        <span class="dot"></span>
+    </div>
+    <div class="dock-item" id="dock-work" onclick="toggleWindow('work')">
+        <span class="di-emoji">💼</span>
+        <span class="dot"></span>
+    </div>
+    <div class="dock-item" id="dock-projects" onclick="toggleWindow('projects')">
+        <span class="di-emoji">📁</span>
+        <span class="dot"></span>
+    </div>
+    <div class="dock-item" id="dock-skills" onclick="toggleWindow('skills')">
+        <span class="di-emoji">🛠</span>
+        <span class="dot"></span>
+    </div>
+    <div class="dock-item" id="dock-contact" onclick="toggleWindow('contact')">
+        <span class="di-emoji">📬</span>
+        <span class="dot"></span>
+    </div>
+    <div class="dock-sep"></div>
+    <div class="dock-item" onclick="window.open('https://github.com/aannyything','_blank')" title="GitHub">
+        <span class="di-emoji">⌥</span>
+        <span class="dot"></span>
+    </div>
+</div>
+ <!-- JavaScript -->
+<script src="script.js"></script>
 </body>
 
 

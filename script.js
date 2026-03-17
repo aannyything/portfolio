@@ -134,3 +134,101 @@ function closeWindow(name) {
         win.classList.remove('open', 'active', 'closing');
     }, 150);
 }
+
+// ─── DRAG TO MOVE WINDOWS ─────────────────────────
+document.querySelectorAll('.win-bar').forEach(bar => {
+    let isDragging = false;
+    let startX, startY, startLeft, startTop;
+
+    bar.addEventListener('mousedown', (e) => {
+        // Don't drag if clicking a button
+        if (e.target.tagName === 'BUTTON') return;
+
+        const win = bar.closest('.window');
+        isDragging = true;
+
+        // Where did we click?
+        startX = e.clientX;
+        startY = e.clientY;
+
+        // Where is the window currently?
+        startLeft = parseInt(win.style.left) || win.getBoundingClientRect().left;
+        startTop = parseInt(win.style.top) || win.getBoundingClientRect().top;
+
+        // Bring to front
+        win.style.zIndex = ++zTop;
+    });
+
+    document.addEventListener('mousemove', (e) => {
+        if (!isDragging) return;
+
+        const win = bar.closest('.window');
+
+        // How far has the mouse moved?
+        const dx = e.clientX - startX;
+        const dy = e.clientY - startY;
+
+        win.style.left = (startLeft + dx) + 'px';
+        win.style.top = (startTop + dy) + 'px';
+    });
+
+    document.addEventListener('mouseup', () => {
+        isDragging = false;
+    });
+});
+
+// Toggle window — open if closed, close if active, focus if inactive
+function toggleWindow(name) {
+    const win = document.getElementById('win-' + name);
+    if (!win) return;
+
+    if (!win.classList.contains('open')) {
+        openWindow(name);
+    } else if (win.classList.contains('active')) {
+        closeWindow(name);
+    } else {
+        // Bring to front
+        win.style.zIndex = ++zTop;
+        document.querySelectorAll('.window').forEach(w => w.classList.remove('active'));
+        win.classList.add('active');
+    }
+}
+
+// Open a window
+function openWindow(name) {
+    const win = document.getElementById('win-' + name);
+    const dock = document.getElementById('dock-' + name);
+    if (!win) return;
+
+    win.classList.add('open');
+    win.classList.add('active');
+
+    // Show dock indicator
+    if (dock) dock.classList.add('open');
+
+    // Bring to front
+    win.style.zIndex = ++zTop;
+
+    // Remove active from other windows
+    document.querySelectorAll('.window').forEach(w => {
+        if (w !== win) w.classList.remove('active');
+    });
+}
+
+// Close a window with animation
+function closeWindow(name) {
+    const win = document.getElementById('win-' + name);
+    const dock = document.getElementById('dock-' + name);
+    if (!win) return;
+
+    // Add closing animation
+    win.classList.add('closing');
+
+    // Hide dock indicator
+    if (dock) dock.classList.remove('open');
+
+    // Wait for animation to finish, then hide
+    setTimeout(() => {
+        win.classList.remove('open', 'active', 'closing');
+    }, 150);
+}
