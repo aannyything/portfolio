@@ -219,3 +219,139 @@ body.dark .icon .label {
         border-color 0.3s ease,
         color 0.2s ease;
 }
+
+/* ================================
+   WINDOWS
+   ================================ */
+.window {
+    position: fixed;
+    background: var(--window-bg);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border: 1px solid rgba(255,255,255,0.85);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    min-width: 320px;
+    z-index: 200;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    resize: both;
+}
+
+.window.active {
+    z-index: 500;
+}
+
+/* Title bar */
+.win-bar {
+    height: 36px;
+    background: rgba(240, 236, 230, 0.8);
+    border-bottom: 1px solid rgba(0,0,0,0.07);
+    display: flex;
+    align-items: center;
+    padding: 0 10px;
+    gap: 8px;
+    cursor: grab;
+    flex-shrink: 0;
+}
+
+.win-bar:active {
+    cursor: grabbing;
+}
+
+/* Traffic light buttons */
+.traffic {
+    display: flex;
+    gap: 6px;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.traffic button {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    transition: filter 0.1s;
+}
+
+.traffic button:hover {
+    filter: brightness(0.85);
+}
+
+.btn-close { background: #ff5f57; }
+.btn-min { background: #febc2e; }
+.btn-max { background: #28c840; }
+
+.win-title {
+    flex: 1;
+    text-align: center;
+    font-size: 11.5px;
+    font-weight: 400;
+    letter-spacing: 0.06em;
+    color: var(--ink-muted);
+    text-transform: uppercase;
+    margin-right: 42px;
+}
+
+/* Window body */
+.win-body {
+    padding: 24px 28px;
+    overflow-y: auto;
+    flex: 1;
+    cursor: text;
+}
+
+/* ================================
+   WINDOW TYPOGRAPHY
+   ================================ */
+.win-body h1 {
+    font-family: var(--font-heading);
+    font-size: 38px;
+    font-weight: 300;
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+    margin-bottom: 6px;
+}
+
+.win-body h1 em {
+    font-style: italic;
+    color: var(--accent);
+}
+
+.win-body .subtitle {
+    font-size: 12px;
+    color: var(--ink-muted);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+
+.win-body p {
+    line-height: 1.8;
+    color: #3a3630;
+    margin-bottom: 12px;
+    font-weight: 300;
+}
+
+.win-body .quote {
+    font-style: italic;
+    color: var(--ink-muted);
+    border-left: 2px solid var(--sky-dark);
+    padding-left: 12px;
+    margin-top: 4px;
+}
+
+/* ================================
+   WINDOW DARK MODE
+   ================================ */
+body.dark .win-bar {
+    background: rgba(22, 34, 54, 0.9);
+    border-bottom-color: rgba(255,255,255,0.06);
+}
+
+body.dark .win-body p {
+    color: #c8c0b5;
+}
