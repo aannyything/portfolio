@@ -343,6 +343,29 @@ body.dark .icon .label {
     padding-left: 12px;
     margin-top: 4px;
 }
+.window {
+    position: fixed;
+    background: var(--window-bg);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border: 1px solid rgba(255,255,255,0.85);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    min-width: 320px;
+    z-index: 200;
+    display: none;          /* Hidden by default */
+    flex-direction: column;
+    overflow: hidden;
+    resize: both;
+}
+
+.window.active {
+    z-index: 500;
+}
+
+.window.open {
+    display: flex;          /* Visible when open */
+}
 
 /* ================================
    WINDOW DARK MODE
@@ -354,4 +377,43 @@ body.dark .win-bar {
 
 body.dark .win-body p {
     color: #c8c0b5;
+}
+
+/* ================================
+   WINDOW ANIMATIONS
+   ================================ */
+@keyframes pop-in {
+    0% {
+        transform: scale(0.85);
+        opacity: 0;
+    }
+    60% {
+        transform: scale(1.02);
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes pop-out {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    60% {
+        transform: scale(1.02);
+    }
+    100% {
+        transform: scale(0.85);
+        opacity: 0;
+    }
+}
+
+.window.open {
+    animation: pop-in 0.22s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+.window.closing {
+    animation: pop-out 0.15s ease-in forwards;
 }
