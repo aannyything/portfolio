@@ -1,0 +1,16 @@
+/* ================================
+   RESET - Remove browser defaults
+   ================================ */
+* {
+    margin: 0;
+    padding: 0;
+}
+
+/* ================================
+   DESKTOP BACKGROUND
+   ================================ */
+#desktop {
+    width: 100vw;
+    height: 100vh;
+    background-color: #c8dff5;
+}
