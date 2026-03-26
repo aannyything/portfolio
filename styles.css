@@ -522,3 +522,186 @@ body.dark #bg-graphic .hl-green {
 body.dark #bg-graphic .hl-orange {
     fill: #4a3a2e;
 }
+
+/* ================================
+   CONTENT STYLES
+   ================================ */
+
+/* Section headings */
+.win-body h2 {
+    font-family: var(--font-heading);
+    font-size: 22px;
+    font-weight: 400;
+    margin: 24px 0 10px;
+    border-bottom: 1px solid rgba(0,0,0,0.08);
+    padding-bottom: 6px;
+}
+
+/* Links */
+.win-body a {
+    color: var(--accent);
+    text-decoration: none;
+    border-bottom: 1px solid currentColor;
+}
+
+.win-body a:hover {
+    opacity: 0.7;
+}
+
+/* Tags */
+.tag {
+    display: inline-block;
+    padding: 2px 9px;
+    border: 1px solid rgba(0,0,0,0.18);
+    border-radius: 20px;
+    font-size: 10.5px;
+    margin: 2px 3px 2px 0;
+    letter-spacing: 0.05em;
+}
+
+body.dark .tag {
+    border-color: rgba(255,255,255,0.18);
+    color: var(--ink);
+}
+
+/* Work entries */
+.work-entry {
+    border-left: 2px solid var(--sky-dark);
+    padding: 0 0 20px 16px;
+    margin-bottom: 4px;
+}
+
+.work-entry .role {
+    font-family: var(--font-heading);
+    font-size: 17px;
+    font-weight: 600;
+}
+
+.work-entry .company {
+    font-size: 11px;
+    color: var(--ink-muted);
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    margin: 2px 0 8px;
+}
+
+/* Skills grid */
+.skills-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin-top: 22px;
+}
+
+.skill-group h3 {
+    font-family: var(--font-heading);
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    letter-spacing: 0.02em;
+}
+
+/* Contact links */
+.contact-links {
+    margin-top: 20px;
+}
+
+.contact-link {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(0,0,0,0.06);
+    font-size: 12.5px;
+    text-decoration: none;
+    color: var(--ink);
+    transition: color 0.15s;
+}
+
+.contact-link:hover {
+    color: var(--accent);
+    border-bottom-color: transparent;
+}
+
+.contact-link .icon-glyph {
+    font-size: 16px;
+    width: 22px;
+    text-align: center;
+}
+
+body.dark .contact-link {
+    border-bottom-color: rgba(255,255,255,0.07);
+}
+
+/* Project cards */
+.projects-list {
+    margin-top: 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.project-card {
+    border: 1px solid rgba(0,0,0,0.1);
+    border-radius: 8px;
+    padding: 16px 18px;
+    background: rgba(255,255,255,0.5);
+    transition: box-shadow 0.15s;
+}
+
+.project-card:hover {
+    box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+}
+
+.project-card--muted {
+    opacity: 0.5;
+    background: transparent;
+}
+
+.project-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 6px;
+}
+
+.project-num {
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    color: var(--ink-muted);
+}
+
+.project-name {
+    font-family: var(--font-heading);
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.project-desc {
+    font-size: 12px;
+    line-height: 1.75;
+    color: #3a3630;
+    margin-bottom: 10px;
+}
+
+.project-link {
+    font-size: 11px;
+    color: var(--accent);
+    text-decoration: none;
+    letter-spacing: 0.04em;
+    border-bottom: none !important;
+}
+
+.project-link:hover {
+    opacity: 0.7;
+}
+
+body.dark .project-card {
+    border-color: rgba(255,255,255,0.08);
+    background: rgba(255,255,255,0.04);
+}
+
+body.dark .project-desc {
+    color: #a0a8b0;
+}
