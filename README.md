@@ -22,6 +22,6 @@ The `/wireframes` folder contains early design sketches showing how the layout e
 Work in progress.
 ```
 
-Feel free to tweak the wording — it's your project.
+
 
 ---
